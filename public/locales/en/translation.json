@@ -1,7 +1,8 @@
 {
-    "content": {
-        "functional": "Functional",
-        "class": "Class",
-        "text": "This is text"
+    "menu": {
+        "introduce": "introduce",
+        "forum": "forum",
+        "competition": "competition",
+        "data": "data"
     }
 }
