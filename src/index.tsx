@@ -1,18 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './layouts/App';
+import Router from './routes';
 import reportWebVitals from './reportWebVitals';
-import { MantineProvider } from '@mantine/core';
+import './i18n/i18n';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <MantineProvider withGlobalStyles withNormalizeCSS>
-      <App />
-    </MantineProvider>
+    <Router />
   </React.StrictMode>
 );
 
