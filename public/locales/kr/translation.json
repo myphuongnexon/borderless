@@ -4,5 +4,12 @@
         "forum": "포럼",
         "competition": "공모전",
         "data": "자료"
+    },
+    "routes": {
+        "introduce": {
+            "borderless": "보더리스",
+            "Breaking the boundaries between games and art": "게임과 예술의 경계를 허물다",
+            "What would it look like if the boundary between games and art disappeared?": "게임과 예술의 경계선이 사라진다면 어떤 모습일까?"
+        }
     }
 }

@@ -29,10 +29,13 @@ const useStyles = createStyles((theme) => ({
   },
   logo1: {
     maxWidth: 150,
+    filter:  theme.colorScheme === 'dark' ? 'invert(100%)' : 'none',
+
   },
   logo2: {
     maxWidth: 180,
-    marginTop: '10%'
+    marginTop: '10%',
+    filter:  theme.colorScheme === 'dark' ? 'invert(100%)' : 'none',
   },
   select: {
     width: 250,

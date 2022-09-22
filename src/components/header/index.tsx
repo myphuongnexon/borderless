@@ -3,13 +3,13 @@ import { createStyles, Header, Container, Group, Burger, Paper, Transition } fro
 import { useDisclosure } from '@mantine/hooks';
 import SwitchModeButton from '../SwitchModeButton';
 import borderlessLogo from '../../assets/images/borderless_logo.png';
+import { Link } from "react-router-dom"
+import { HEADER_HEIGHT } from '../../utils/variable';
 
-
-const HEADER_HEIGHT = 80;
 
 const useStyles = createStyles((theme) => ({
     root: {
-    position: 'relative',
+    position: 'fixed',
     zIndex: 1,
   },
 
@@ -31,6 +31,7 @@ const useStyles = createStyles((theme) => ({
   
   logo1: {
     maxWidth: 150,
+    filter:  theme.colorScheme === 'dark' ? 'invert(100%)' : 'none',
   },
 
   header: {
@@ -41,7 +42,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   links: {
-    height: '100%',
+    height: '102%',
     gap: 20,
     [theme.fn.smallerThan('sm')]: {
       display: 'none',
@@ -64,9 +65,11 @@ const useStyles = createStyles((theme) => ({
     color: theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[6],
     padding: `7px ${theme.spacing.sm}px`,
     fontWeight: 700,
-    borderBottom: '2px solid transparent',
+    borderBottom: '4px solid transparent',
     transition: 'border-color 100ms ease, color 100ms ease',
     textDecoration: 'none',
+    minWidth: 100,
+    textAlign: 'center',
 
     '&:hover': {
       color: theme.colorScheme === 'dark' ? theme.white : theme.black,
@@ -80,7 +83,7 @@ const useStyles = createStyles((theme) => ({
 
   linkActive: {
     color: theme.colorScheme === 'dark' ? theme.white : theme.black,
-    borderBottomColor: theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 5 : 6],
+    borderBottomColor: theme.colors.dark[theme.colorScheme === 'dark' ? 2 : 6],
   },
 }));
 
@@ -89,23 +92,33 @@ interface HeaderResponsiveProps {
 }
 
 export function HeaderResponsive({ links }: HeaderResponsiveProps) {
-  const [opened, { toggle, close }] = useDisclosure(false);
+  const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState(links[0].link);
   const { classes, cx } = useStyles();
 
   const items = links.map((link) => (
-    <a
+    // <a
+    //   key={link.label}
+    //   href={link.link}
+    //   className={cx(classes.link, { [classes.linkActive]: active === link.link })}
+    //   onClick={(event) => {
+    //     event.preventDefault();
+    //     setActive(link.link);
+    //     close();
+    //   }}
+    // >
+    //   {link.label}
+    // </a>
+    <Link 
       key={link.label}
-      href={link.link}
       className={cx(classes.link, { [classes.linkActive]: active === link.link })}
+      to={link.link}
       onClick={(event) => {
-        event.preventDefault();
-        setActive(link.link);
-        close();
-      }}
-    >
-      {link.label}
-    </a>
+            setActive(link.link);
+          }}>
+        {link.label}
+    </Link>
+
   ));
 
   return (

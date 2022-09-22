@@ -4,5 +4,12 @@
         "forum": "forum",
         "competition": "competition",
         "data": "data"
+    },
+    "routes": {
+        "introduce": {
+            "borderless": "borderless",
+            "Breaking the boundaries between games and art": "Breaking the boundaries between games and art",
+            "What would it look like if the boundary between games and art disappeared?": "What would it look like if the boundary between games and art disappeared?"
+            }
     }
 }
