@@ -4,6 +4,7 @@ import { createStyles, Container, Grid, Text, Center, AspectRatio, Image } from 
 import VideoBanner from '../../components/VideoBanner';
 import { useTranslation } from 'react-i18next';
 import ImageCardList from '../../components/ImageCardList';
+import ImageBanner from '../../components/ImageBanner';
 
 const useStyles = createStyles((theme) => ({
   h1: {
@@ -42,6 +43,17 @@ const useStyles = createStyles((theme) => ({
     filter:  theme.colorScheme === 'dark' ? 'invert(100%)' : 'none',
     marginBottom: 10
   },
+  first_title: {
+    fontSize: 50,
+    textAlign: 'center',
+    fontWeight: 'bold'
+  },
+  second_title: {
+    fontSize: 20,
+    textAlign: 'center',
+    marginTop: '-25px',
+    fontWeight: 'bold'
+  }
 }));
 
 function Introduce() {

@@ -1,11 +1,10 @@
 import i18next, { i18n as i18nInstance } from "i18next";
 import { initReactI18next } from "react-i18next";
-import { languages } from "./i18n.constant";
 import HttpApi from "i18next-http-backend";
 
+const defaultLanguage = localStorage.getItem('language') || 'en';
 const createI18n = (language: string): i18nInstance => {
   const i18n = i18next.createInstance().use(initReactI18next);
-
   i18n
     .use(HttpApi) // Use backend plugin for translation file download.
     .init({
@@ -19,5 +18,4 @@ const createI18n = (language: string): i18nInstance => {
 
   return i18n;
 };
-
-export const i18n = createI18n(languages.kr);
+export const i18n = createI18n(JSON.parse(window.localStorage.language));

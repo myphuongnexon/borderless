@@ -1,10 +1,14 @@
 import './index.css';
 import { useState } from 'react';
 import { MantineProvider, ColorSchemeProvider, ColorScheme  } from '@mantine/core';
+import { useLocalStorage } from '@mantine/hooks';
 import Content from '../components/Content';
 
 function Router() {
-  const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
+  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
+    key: 'color-scheme',
+    defaultValue: 'light',
+  });
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 

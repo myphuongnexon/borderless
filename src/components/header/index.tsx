@@ -1,10 +1,19 @@
 import { useState } from 'react';
-import { createStyles, Header, Container, Group, Burger, Paper, Transition } from '@mantine/core';
+import { createStyles, Header, Container, Group, Burger, Paper, Transition, Button , Avatar, Menu, Text, useMantineColorScheme } from '@mantine/core';
+import { IconExternalLink } from '@tabler/icons';
 import { useDisclosure } from '@mantine/hooks';
 import SwitchModeButton from '../SwitchModeButton';
 import borderlessLogo from '../../assets/images/borderless_logo.png';
 import { Link } from "react-router-dom"
 import { HEADER_HEIGHT } from '../../utils/variable';
+import { useLocation } from 'react-router-dom';
+// import {useAuth} from '../../global';
+import { useTranslation } from 'react-i18next';
+import { changeLanguage } from '../../global';
+import { forwardRef } from 'react';
+import EngFlagIcon from '../../assets/images/united-kingdom.png';
+import KorFlagIcon from '../../assets/images/south-korea.png';
+import { language } from '../../global';
 
 
 const useStyles = createStyles((theme) => ({
@@ -54,7 +63,6 @@ const useStyles = createStyles((theme) => ({
       display: 'none',
     },
   },
-
   link: {
     cursor: 'pointer',
     height: '100%',
@@ -80,7 +88,6 @@ const useStyles = createStyles((theme) => ({
       padding: theme.spacing.md,
     },
   },
-
   linkActive: {
     color: theme.colorScheme === 'dark' ? theme.white : theme.black,
     borderBottomColor: theme.colors.dark[theme.colorScheme === 'dark' ? 2 : 6],
@@ -93,33 +100,28 @@ interface HeaderResponsiveProps {
 
 export function HeaderResponsive({ links }: HeaderResponsiveProps) {
   const [opened, { toggle }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
+  const location = useLocation();
+  const [active, setActive] = useState(location.pathname);
   const { classes, cx } = useStyles();
+  const { t, i18n } = useTranslation();
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const dark = colorScheme === 'dark';
 
-  const items = links.map((link) => (
-    // <a
-    //   key={link.label}
-    //   href={link.link}
-    //   className={cx(classes.link, { [classes.linkActive]: active === link.link })}
-    //   onClick={(event) => {
-    //     event.preventDefault();
-    //     setActive(link.link);
-    //     close();
-    //   }}
-    // >
-    //   {link.label}
-    // </a>
-    <Link 
-      key={link.label}
-      className={cx(classes.link, { [classes.linkActive]: active === link.link })}
-      to={link.link}
-      onClick={(event) => {
-            setActive(link.link);
-          }}>
-        {link.label}
-    </Link>
 
-  ));
+
+
+const items = links.map((link) => (
+  <Link 
+    key={link.label}
+    className={cx(classes.link, { [classes.linkActive]: active === link.link })}
+    to={link.link}
+    onClick={(event) => {
+          setActive(link.link);
+        }}>
+      {link.label}
+  </Link>
+));
+
 
   return (
     <Header height={HEADER_HEIGHT} mb={120} className={classes.root}>
@@ -132,6 +134,44 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
 
         <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
         <SwitchModeButton />
+
+        <Menu width={130} shadow="md">
+          <Menu.Target>
+            <Button
+            leftIcon={ 
+            <Avatar 
+              size="sm" 
+              src={EngFlagIcon} />
+            } 
+            color={dark ? 'yellow' : 'dark.3'}
+            variant="outline">
+              {language == 'en' ? 'ENGLISH' : 'KOREA'}
+            </Button>
+          </Menu.Target>
+          <Menu.Dropdown>
+            <Menu.Item 
+              component="button"
+              icon={
+              <Avatar 
+                size="sm" 
+                src={EngFlagIcon} />
+              }
+            >
+              ENGLISH
+            </Menu.Item>
+            <Menu.Item 
+              component="button"
+              icon={
+              <Avatar 
+                size="sm" 
+                src={KorFlagIcon} />
+              }
+            >
+              KOREAN  
+            </Menu.Item>
+          </Menu.Dropdown>
+        </Menu>
+        <Button onClick={() => changeLanguage( i18n.language == 'kr' ? 'en' : 'kr')} />
 
         <Transition transition="pop-top-right" duration={200} mounted={opened}>
           {(styles) => (

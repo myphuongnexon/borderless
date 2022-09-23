@@ -9,7 +9,8 @@ import {
   BrowserRouter as Router,
   // Link,
   Route,
-  Routes
+  Routes,
+  useNavigate 
 } from "react-router-dom"
 import Competition from '../../routes/Competition';
 import Forum from '../../routes/Forum';

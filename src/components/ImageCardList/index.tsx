@@ -1,6 +1,7 @@
 import { createStyles, Image, Text, Container, Center, Grid } from '@mantine/core';
 // import { useTranslation } from 'react-i18next';
 import ImageCard from '../ImageCard';
+import LogoTitle from '../LogoTitle';
 
 
 const useStyles = createStyles((theme) => ({
@@ -35,27 +36,16 @@ interface ImageCardListProps {
 
 function ImageCardList({items, title, logoLink} : ImageCardListProps) {
   const { classes } = useStyles();
-  // const { t } = useTranslation();
 
   return (
     <Container size={1200}>
     <Center>
       <Grid>
-        <Grid.Col span={12} className={classes.ImageCardListTitle}>
-        <Image
-          className={classes.small_logo2}
-          src={logoLink}
-          alt="Panda"
-        />
-        <Text className={classes.afterLogo}>
-          {title}
-        </Text>
-        </Grid.Col>
-        {items && items.map(i => 
-        <Grid.Col span={4}>
-          <Center><ImageCard {...i} /></Center>
+        <LogoTitle title={title} logoLink={logoLink} />
+        {items && items.map((item, index) => 
+        <Grid.Col key={index} span={4}>
+          <Center><ImageCard {...item} /></Center>
         </Grid.Col>)}
-        
       </Grid>
     </Center>
   </Container>
