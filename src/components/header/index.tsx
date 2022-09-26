@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { createStyles, Header, Container, Group, Burger, Paper, Transition, Button , Avatar, Menu, Text, useMantineColorScheme } from '@mantine/core';
-import { IconExternalLink } from '@tabler/icons';
+// import { IconExternalLink } from '@tabler/icons';
 import { useDisclosure } from '@mantine/hooks';
 import SwitchModeButton from '../SwitchModeButton';
 import borderlessLogo from '../../assets/images/borderless_logo.png';
@@ -10,14 +10,14 @@ import { useLocation } from 'react-router-dom';
 // import {useAuth} from '../../global';
 import { useTranslation } from 'react-i18next';
 import { changeLanguage } from '../../global';
-import { forwardRef } from 'react';
+// import { forwardRef } from 'react';
 import EngFlagIcon from '../../assets/images/united-kingdom.png';
 import KorFlagIcon from '../../assets/images/south-korea.png';
-import { language } from '../../global';
+// import { language } from '../../global';
 
 
 const useStyles = createStyles((theme) => ({
-    root: {
+  root: {
     position: 'fixed',
     zIndex: 1,
   },
@@ -39,7 +39,8 @@ const useStyles = createStyles((theme) => ({
   },
   
   logo1: {
-    maxWidth: 150,
+    maxWidth: 120,
+    marginRight: 100,
     filter:  theme.colorScheme === 'dark' ? 'invert(100%)' : 'none',
   },
 
@@ -53,6 +54,7 @@ const useStyles = createStyles((theme) => ({
   links: {
     height: '102%',
     gap: 20,
+    minWidth: 800,
     [theme.fn.smallerThan('sm')]: {
       display: 'none',
     },
@@ -76,7 +78,7 @@ const useStyles = createStyles((theme) => ({
     borderBottom: '4px solid transparent',
     transition: 'border-color 100ms ease, color 100ms ease',
     textDecoration: 'none',
-    minWidth: 100,
+    minWidth: 150,
     textAlign: 'center',
 
     '&:hover': {
@@ -92,6 +94,13 @@ const useStyles = createStyles((theme) => ({
     color: theme.colorScheme === 'dark' ? theme.white : theme.black,
     borderBottomColor: theme.colors.dark[theme.colorScheme === 'dark' ? 2 : 6],
   },
+  selectedMenu: {
+    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.gray[8] : theme.colors.gray[2],
+  },
+  languageButton: {
+    marginRight: 10
+  }
+
 }));
 
 interface HeaderResponsiveProps {
@@ -133,24 +142,26 @@ const items = links.map((link) => (
         </Group>
 
         <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
-        <SwitchModeButton />
 
         <Menu width={130} shadow="md">
           <Menu.Target>
             <Button
+            className={classes.languageButton}
             leftIcon={ 
             <Avatar 
               size="sm" 
-              src={EngFlagIcon} />
+              src={i18n.language === 'en' ? EngFlagIcon : KorFlagIcon} />
             } 
             color={dark ? 'yellow' : 'dark.3'}
             variant="outline">
-              {language == 'en' ? 'ENGLISH' : 'KOREA'}
+              {i18n.language == 'en' ? 'ENGLISH' : 'KOREA'}
             </Button>
           </Menu.Target>
           <Menu.Dropdown>
             <Menu.Item 
               component="button"
+              className={i18n.language === 'en' ? classes.selectedMenu : 'none'}
+              onClick={() => changeLanguage( 'en' )}
               icon={
               <Avatar 
                 size="sm" 
@@ -160,6 +171,8 @@ const items = links.map((link) => (
               ENGLISH
             </Menu.Item>
             <Menu.Item 
+              onClick={() => changeLanguage( 'kr' )}
+              className={i18n.language === 'kr' ? classes.selectedMenu : 'none'}
               component="button"
               icon={
               <Avatar 
@@ -171,7 +184,8 @@ const items = links.map((link) => (
             </Menu.Item>
           </Menu.Dropdown>
         </Menu>
-        <Button onClick={() => changeLanguage( i18n.language == 'kr' ? 'en' : 'kr')} />
+
+        <SwitchModeButton />
 
         <Transition transition="pop-top-right" duration={200} mounted={opened}>
           {(styles) => (

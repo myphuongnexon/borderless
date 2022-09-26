@@ -42,7 +42,7 @@ const useStyles = createStyles((theme, params, getRef) => ({
       width: 12,
       height: 4,
       transition: 'width 250ms ease',
-      backgroundColor: 'black',
+      backgroundColor:  theme.colorScheme === 'dark' ? 'white' : 'black',
       '&[data-active]': {
         width: 40,
       },

@@ -12,7 +12,7 @@ import {
   Routes,
   useNavigate 
 } from "react-router-dom"
-import Competition from '../../routes/Competition';
+import Prize from '../../routes/Prize';
 import Forum from '../../routes/Forum';
 import Data from '../../routes/Data';
 import Introduce from '../../routes/Introduce';
@@ -29,7 +29,7 @@ function Content() {
       "mainLinks": [
         { "link": "/", "label": t('menu.introduce')},
         { "link": "/forum", "label": t('menu.forum') },
-        { "link": "/competition", "label": t('menu.competition') },
+        { "link": "/prize", "label": t('menu.competition') },
         { "link": "/data", "label": t('menu.data') },
       ] 
     };
@@ -60,7 +60,7 @@ function Content() {
         <Routes>
           <Route path="/" element={<Introduce />} />
           <Route path="/forum" element={<Forum />} />
-          <Route path="/competition" element={<Competition />} />
+          <Route path="/prize" element={<Prize />} />
           <Route path="/data" element={<Data />} />
         </Routes>
       </AppShell>
