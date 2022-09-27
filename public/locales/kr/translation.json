@@ -2,8 +2,8 @@
     "menu": {
         "introduce": "소개",
         "forum": "포럼",
-        "competition": "공모전",
-        "data": "자료"
+        "prize": "공모전",
+        "archive": "자료"
     },
     "routes": {
         "introduce": {

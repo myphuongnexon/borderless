@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import {  Container, Center, createStyles, Grid, Image, Text} from '@mantine/core';
+import {  Container, Center, createStyles, Grid} from '@mantine/core';
 import { Carousel } from '@mantine/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 // import { useTranslation } from 'react-i18next';

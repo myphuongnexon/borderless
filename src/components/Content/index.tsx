@@ -9,12 +9,11 @@ import {
   BrowserRouter as Router,
   // Link,
   Route,
-  Routes,
-  useNavigate 
+  Routes 
 } from "react-router-dom"
 import Prize from '../../routes/Prize';
 import Forum from '../../routes/Forum';
-import Data from '../../routes/Data';
+import Archive from '../../routes/Archive';
 import Introduce from '../../routes/Introduce';
 import { HEADER_HEIGHT } from '../../utils/variable';
 
@@ -29,8 +28,8 @@ function Content() {
       "mainLinks": [
         { "link": "/", "label": t('menu.introduce')},
         { "link": "/forum", "label": t('menu.forum') },
-        { "link": "/prize", "label": t('menu.competition') },
-        { "link": "/data", "label": t('menu.data') },
+        { "link": "/prize", "label": t('menu.prize') },
+        { "link": "/archive", "label": t('menu.archive') },
       ] 
     };
 
@@ -61,7 +60,7 @@ function Content() {
           <Route path="/" element={<Introduce />} />
           <Route path="/forum" element={<Forum />} />
           <Route path="/prize" element={<Prize />} />
-          <Route path="/data" element={<Data />} />
+          <Route path="/archive" element={<Archive />} />
         </Routes>
       </AppShell>
     </Router>

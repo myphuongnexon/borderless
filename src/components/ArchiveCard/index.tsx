@@ -6,11 +6,12 @@ const useStyles = createStyles((theme) => ({
     borderRadius: 0,
     padding: '0 !important',
     backgroundColor: 'transparent',
-    height: 400,
-    margin: 8
+    height: 320,
+    margin: 8,
+    width: 350,
   },
   h3: {
-    marginTop: 5,
+    margin: 10,
     fontSize: 25,
     fontWeight: 'bold', 
     overflow: 'hidden',
@@ -43,7 +44,7 @@ const useStyles = createStyles((theme) => ({
   }
 }));
 
-interface ImageCardProps {
+interface ArchiveCardProps {
   link: string,
   linkImage: string,
   title: string,
@@ -53,19 +54,20 @@ interface ImageCardProps {
 
 
 
-function ImageCard({link, linkImage, title, content, createdDate} : ImageCardProps) {
+function ArchiveCard({link, linkImage, title, content, createdDate} : ArchiveCardProps) {
   const { classes } = useStyles();
 
   return (
     <Link to={link} className={classes.link}> 
         <Card
-        p="xl"
+        // p="xl"
+        shadow="xl" p="lg" radius="md" 
         className={classes.card_container}
       >
         <Card.Section>
           <Image
             src={linkImage}
-            height={200}
+            height={250}
             alt="No way!"
           />
         </Card.Section>
@@ -74,17 +76,10 @@ function ImageCard({link, linkImage, title, content, createdDate} : ImageCardPro
         {title}
         </Text>
 
-        <Text mt="xs" className={classes.h4_noBold}>
-          {content}
-        </Text>
-
-        <Text mt="xs" className={classes.dateTime}>
-          {createdDate}
-        </Text>
 
       </Card>
     </Link>
   );
 }
 
-export default ImageCard;
+export default ArchiveCard;

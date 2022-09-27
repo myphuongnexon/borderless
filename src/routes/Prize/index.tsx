@@ -1,8 +1,9 @@
 // import './index.css';
-import { useState } from 'react';
-import { MantineProvider, ColorSchemeProvider, ColorScheme, Center, Grid, Text, createStyles  } from '@mantine/core';
+// import { useState } from 'react';
+import { Center, Grid, Text, createStyles  } from '@mantine/core';
 import NewsCardList from '../../components/NewsCardList';
 import ImageBanner from '../../components/ImageBanner';
+import CarouselImageCardList from '../../components/CarouselImageCardList';
 
 const useStyles = createStyles((theme) => ({
   h1: {
@@ -58,6 +59,12 @@ const useStyles = createStyles((theme) => ({
   },
   image_title: {
     marginLeft: 100
+  },
+  carousel_container: {
+    paddingTop: 50,
+    marginTop: 100,
+    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[0],
+
   }
 }));
 
@@ -69,14 +76,14 @@ function Prize() {
       {
         link: '/',
         linkImage: 'https://borderless.or.kr/upload/001.jpg',
-        title: '게임을 하는 일곱가지 이유',
+        title: '게임을 하는 일곱가지 이유 게임을 하는 일곱가지 이유 게임을 하는 일곱가지 이유 게임을 하는 일곱가지 이유. 게임을 하는 일곱가지   ',
         content: '누구나 추억의 게임 하나쯤은 있다!  당신의 곁을 지켜온 게임은 무엇인가요?  우리는 무슨 이유에서 게임을 하는 걸까요?',
         createdDate: '2022-02-17 12:49:14'
       },
       {
         link: '/',
         linkImage: 'https://borderless.or.kr/upload/001.jpg',
-        title: '게임을 하는 일곱가지 이유',
+        title: '게임을 하는 일곱가지    ',
         content: '누구나 추억의 게임 하나쯤은 있다!  당신의 곁을 지켜온 게임은 무엇인가요?  우리는 무슨 이유에서 게임을 하는 걸까요?',
         createdDate: '2022-02-17 12:49:14'
       },
@@ -128,6 +135,12 @@ function Prize() {
       <Grid className={classes.quote_container}>
         <Grid.Col span={12}>
          <NewsCardList {...content1} />
+        </Grid.Col>
+      </Grid>
+
+      <Grid className={classes.carousel_container}>
+        <Grid.Col span={12}>
+         <CarouselImageCardList {...content1} />
         </Grid.Col>
       </Grid>
      

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { createStyles, Header, Container, Group, Burger, Paper, Transition, Button , Avatar, Menu, Text, useMantineColorScheme } from '@mantine/core';
+import { createStyles, Header, Container, Group, Burger, Paper, Transition, Button , Avatar, Menu, useMantineColorScheme } from '@mantine/core';
 // import { IconExternalLink } from '@tabler/icons';
 import { useDisclosure } from '@mantine/hooks';
 import SwitchModeButton from '../SwitchModeButton';
@@ -112,8 +112,8 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
   const location = useLocation();
   const [active, setActive] = useState(location.pathname);
   const { classes, cx } = useStyles();
-  const { t, i18n } = useTranslation();
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const { i18n } = useTranslation();
+  const { colorScheme } = useMantineColorScheme();
   const dark = colorScheme === 'dark';
 
 
@@ -154,7 +154,7 @@ const items = links.map((link) => (
             } 
             color={dark ? 'yellow' : 'dark.3'}
             variant="outline">
-              {i18n.language == 'en' ? 'ENGLISH' : 'KOREA'}
+              {i18n.language === 'en' ? 'ENGLISH' : 'KOREA'}
             </Button>
           </Menu.Target>
           <Menu.Dropdown>

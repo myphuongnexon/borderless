@@ -1,5 +1,5 @@
-import { Card, createStyles, Image, Text, Grid, Button } from '@mantine/core';
-import { IconGridDots } from '@tabler/icons';
+import { createStyles, Image, Text, Grid, Button } from '@mantine/core';
+// import { IconGridDots } from '@tabler/icons';
 import { Link } from 'react-router-dom';
 import { IconChevronRight } from '@tabler/icons';
 
@@ -15,15 +15,21 @@ const useStyles = createStyles((theme) => ({
     marginTop: 5,
     fontSize: 25,
     fontWeight: 'bold',
-    color: theme?.colorScheme === 'dark' ? theme.colors.gray[0] : theme.colors.gray[8]
+    color: theme?.colorScheme === 'dark' ? theme.colors.gray[0] : theme.colors.gray[8],
+    overflow: 'hidden',
+    height: 80,
+    display: '-webkit-box',
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: 'vertical',
+    boxOrient: 'vertical',
+    lineClamp:3,
+    marginBottom: 20
   },
   h4_noBold: {
     marginTop: 5,
     fontSize: 20,
     color: theme?.colorScheme === 'dark' ? theme.colors.gray[0] : theme.colors.gray[8],
-    // whiteSpace: 'nowrap',
     overflow: 'hidden',
-    // textOverflow: 'ellipsis',
     height: 100,
     display: '-webkit-box',
     WebkitLineClamp: 3,

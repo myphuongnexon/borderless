@@ -1,6 +1,6 @@
 import { Container, Center, Grid } from '@mantine/core';
 // import { useTranslation } from 'react-i18next';
-import NewsCard from '../NewsCard';
+import ArchiveCard from '../ArchiveCard';
 import LogoTitle from '../LogoTitle';
 
 
@@ -21,7 +21,7 @@ import LogoTitle from '../LogoTitle';
 //   },
 // }));
 
-interface NewsCardListProps {
+interface ArchiveCardListProps {
   items: { 
     link: string,
     linkImage: string,
@@ -34,22 +34,22 @@ interface NewsCardListProps {
 }
 
 
-function NewsCardList({items, title, logoLink} : NewsCardListProps) {
+function ArchiveCardList({items, title, logoLink} : ArchiveCardListProps) {
   // const { classes } = useStyles();
 
   return (
     <Container size={1200}>
-      <LogoTitle title={title} logoLink={logoLink} />
-      <Center>
-        <Grid>
-          {items && items.map((item, index) => 
-          <Grid.Col key={index} span={12}>
-            <Center><NewsCard {...item} /></Center>
-          </Grid.Col>)}
-        </Grid>
-      </Center>
+    <Center>
+      <Grid>
+        <LogoTitle title={title} logoLink={logoLink} />
+        {items && items.map((item, index) => 
+        <Grid.Col key={index} span={4}>
+          <Center><ArchiveCard {...item} /></Center>
+        </Grid.Col>)}
+      </Grid>
+    </Center>
   </Container>
   );
 }
 
-export default NewsCardList;
+export default ArchiveCardList;

@@ -2,8 +2,8 @@
     "menu": {
         "introduce": "introduce",
         "forum": "forum",
-        "competition": "competition",
-        "data": "data"
+        "prize": "prize",
+        "archive": "archive"
     },
     "routes": {
         "introduce": {
