@@ -9,7 +9,7 @@ function SwitchModeButton() {
     <ActionIcon
       size={34}
       variant="outline"
-      color={dark ? 'yellow' : 'dark.3'}
+      color={dark ? 'yellow' : 'dark.1'}
       onClick={() => toggleColorScheme()}
       title="Toggle color scheme"
     >

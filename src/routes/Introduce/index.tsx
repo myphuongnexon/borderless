@@ -1,14 +1,15 @@
-// import './index.css';
-// import { useState } from 'react';
 import { createStyles, Container, Grid, Text, Center, AspectRatio, Image } from '@mantine/core';
 import VideoBanner from '../../components/VideoBanner';
 import { useTranslation } from 'react-i18next';
 import ImageCardList from '../../components/ImageCardList';
-import ImageBanner from '../../components/ImageBanner';
 
 const useStyles = createStyles((theme) => ({
   h1: {
     fontSize: 45,
+    fontWeight: 'bold'
+  },
+  h1_en: {
+    fontSize: 3,
     fontWeight: 'bold'
   },
   h2: {
@@ -58,7 +59,7 @@ const useStyles = createStyles((theme) => ({
 
 function Introduce() {
   const { classes } = useStyles();
-  const { t } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const title = {
     bigTitle: '보더리스',
@@ -105,7 +106,7 @@ function Introduce() {
                   <Center><div className={classes.bar} /></Center>
                 </Grid.Col>
                 <Grid.Col span={12}>
-                  <Text className={classes.h1}>
+                  <Text className={i18n.language === 'kr' ? classes.h1 : classes.h1_en}>
                     "{t('routes.introduce.Breaking the boundaries between games and art')}"
                   </Text>
                 </Grid.Col>
