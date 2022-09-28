@@ -6,7 +6,7 @@ const useStyles = createStyles((theme) => ({
     borderRadius: 0,
     padding: '0 !important',
     backgroundColor: 'transparent',
-    height: 400,
+    height: 450,
     margin: 8
   },
   h3: {
@@ -40,7 +40,7 @@ const useStyles = createStyles((theme) => ({
   },
   link: {
     textDecoration: 'none'
-  }
+  } 
 }));
 
 interface ImageCardProps {
@@ -65,7 +65,7 @@ function ImageCard({link, linkImage, title, content, createdDate} : ImageCardPro
         <Card.Section>
           <Image
             src={linkImage}
-            height={200}
+            height={250}
             alt="No way!"
           />
         </Card.Section>
