@@ -28,8 +28,6 @@ interface LogoTitleProps {
 
 function LogoTitle({ title, logoLink} : LogoTitleProps) {
   const { classes } = useStyles();
-  const autoplay = useRef(Autoplay({ delay: 2000 }));
-
 
   return (
     <Grid.Col span={12} className={classes.ImageCardListTitle}>

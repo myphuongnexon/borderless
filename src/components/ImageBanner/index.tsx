@@ -1,4 +1,4 @@
-import { AspectRatio, createStyles, Center, Text, Grid, Image, Container } from '@mantine/core';
+import { AspectRatio, createStyles, Grid } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   video_box: {

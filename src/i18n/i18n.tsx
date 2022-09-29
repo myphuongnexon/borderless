@@ -2,7 +2,6 @@ import i18next, { i18n as i18nInstance } from "i18next";
 import { initReactI18next } from "react-i18next";
 import HttpApi from "i18next-http-backend";
 
-const defaultLanguage = localStorage.getItem('language') || 'en';
 const createI18n = (language: string): i18nInstance => {
   const i18n = i18next.createInstance().use(initReactI18next);
   i18n

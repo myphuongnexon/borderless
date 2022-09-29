@@ -1,4 +1,4 @@
-import { createStyles, Image, Text, Container, Center, Grid } from '@mantine/core';
+import { createStyles, Container, Center, Grid } from '@mantine/core';
 // import { useTranslation } from 'react-i18next';
 import ImageCard from '../ImageCard';
 import LogoTitle from '../LogoTitle';
