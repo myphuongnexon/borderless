@@ -2,6 +2,7 @@ import { createStyles, Image, Text, Grid, Button } from '@mantine/core';
 // import { IconGridDots } from '@tabler/icons';
 import { Link } from 'react-router-dom';
 import { IconChevronRight } from '@tabler/icons';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = createStyles((theme) => ({
   card_container: {
@@ -72,6 +73,7 @@ interface NewsCardProps {
 
 function NewsCard({link, linkImage, title, content, createdDate} : NewsCardProps) {
   const { classes } = useStyles();
+  const { t } = useTranslation();
 
   return (
     <Link to={link} className={classes.link}> 
@@ -93,7 +95,7 @@ function NewsCard({link, linkImage, title, content, createdDate} : NewsCardProps
           </Text>
 
           <Button variant="outline" className={classes.link_button} rightIcon={<IconChevronRight />}>
-          자세히보기
+          {t('content.자세히보기')}
           </Button>
         </Grid.Col>
       </Grid>

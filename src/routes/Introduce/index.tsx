@@ -90,7 +90,7 @@ function Introduce() {
         createdDate: '2022-02-17 12:49:14'
       }
     ],
-    title: '보더리스 포럼',
+    title: t('content.보더리스 포럼'),
     logoLink: 'https://borderless.or.kr/assets/images/icon/ic-point-01.png'
   };
 
@@ -118,7 +118,7 @@ function Introduce() {
         createdDate: '2022-02-17 12:49:14'
       }
     ],
-    title: '[2020] 보더리스 시범 프로젝트',
+    title: t('content.[2020] 보더리스 시범 프로젝트'),
     logoLink: 'https://borderless.or.kr/assets/images/icon/ic-point-01.png'
   };
 
