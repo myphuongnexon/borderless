@@ -1,6 +1,6 @@
-import { useRef } from 'react';
+// import { useRef } from 'react';
 import {  createStyles, Grid, Image, Text} from '@mantine/core';
-import Autoplay from 'embla-carousel-autoplay';
+// import Autoplay from 'embla-carousel-autoplay';
 
 
 const useStyles = createStyles((theme, params, getRef) => ({

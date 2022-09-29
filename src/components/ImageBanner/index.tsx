@@ -24,7 +24,7 @@ function ImageBanner({link, title, maxHeight} : ImageBannerProps) {
   return (
     <>
        <AspectRatio ratio={2560 / 1100} sx={{ maxWidth: '100%', maxHeight }} mx="auto">
-      <img className={classes.video_box} src={link} />
+      <img className={classes.video_box} src={link} alt="" />
       <div className={classes.video_background}></div>
       <Grid>
         <Grid.Col span={6}>{title}</Grid.Col>
