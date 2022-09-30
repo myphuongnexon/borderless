@@ -43,7 +43,7 @@ function ArchiveCardList({items, title, logoLink} : ArchiveCardListProps) {
       <Grid>
         <LogoTitle title={title} logoLink={logoLink} />
         {items && items.map((item, index) => 
-        <Grid.Col key={index} span={4}>
+        <Grid.Col key={index} md={4} sm={6} xs={12}>
           <Center><ArchiveCard {...item} /></Center>
         </Grid.Col>)}
       </Grid>

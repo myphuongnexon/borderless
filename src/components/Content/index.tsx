@@ -41,8 +41,9 @@ function Content() {
           main: {
             background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : 'white',
             paddingTop: HEADER_HEIGHT,
-            paddingLeft: 0,
-            paddingRight: 0
+            paddingLeft: '0 !important',
+            paddingRight: 0,
+            overflow: 'hidden'
           },
         }}
         // navbarOffsetBreakpoint controls when navbar should no longer be offset with padding-left

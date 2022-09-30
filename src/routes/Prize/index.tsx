@@ -44,12 +44,12 @@ const useStyles = createStyles((theme) => ({
     marginBottom: 10
   },
   first_title: {
-    fontSize: 35,
+    fontSize: '3vh',
     textAlign: 'start',
     fontWeight: 'bold'
   },
   second_title: {
-    fontSize: 20,
+    fontSize: '2.5vh',
     textAlign: 'start',
     marginTop: '10px',
   },
@@ -59,7 +59,10 @@ const useStyles = createStyles((theme) => ({
     marginTop: '10px',
   },
   image_title: {
-    marginLeft: 100
+    marginLeft: 100,
+    [theme.fn.smallerThan('sm')]: {
+      margin: 0
+    }
   },
   carousel_container: {
     paddingTop: 50,
@@ -170,7 +173,7 @@ function Prize() {
 
   return (
     <>
-      <ImageBanner link='https://borderless.or.kr/upload/img1.png' title={title1} maxHeight={450}/>
+      <ImageBanner link='https://borderless.or.kr/upload/img1.png' title={title1} maxHeight={1000}/>
       <Grid className={classes.quote_container}>
         <Grid.Col span={12}>
          <NewsCardList {...content1} />

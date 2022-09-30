@@ -153,7 +153,7 @@ export function Footer() {
     <footer className={classes.footer}>
       <Container>
         <Grid className={classes.inner}>
-            <Grid.Col span={6}>
+            <Grid.Col md={6} sm={12}>
               <div className={classes.logo_container}>
                 <Grid>
                   <Grid.Col span={6}><img src={logo1} className={classes.logo1}  alt="logo"/></Grid.Col>
@@ -161,7 +161,7 @@ export function Footer() {
                 </Grid>
               </div>
             </Grid.Col>
-            <Grid.Col span={4} offset={2}>
+            <Grid.Col md={4} offset={2} sm={12}>
             <div className={classes.select}>
               <Select
                 // label="Your favorite framework/library"
@@ -178,7 +178,7 @@ export function Footer() {
       </Container>
       <Container className={classes.afterFooter}>
       <Grid className={classes.full}>
-            <Grid.Col span={6}>
+            <Grid.Col md={6} sm={12}>
             <Text color="dimmed" size="sm">
               경기도 성남시 분당구 판교로256번길 25, B동 5층
             </Text>
@@ -186,7 +186,7 @@ export function Footer() {
               nexon@nexonfoundation.org | 031-704-1994
             </Text>
             </Grid.Col>
-            <Grid.Col span={6}>
+            <Grid.Col md={6} sm={12}>
               © 2019 NEXON CORPORATION ALL RIGHTS RESERVED.
             </Grid.Col>
       </Grid>

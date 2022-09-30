@@ -5,19 +5,19 @@ import ImageCardList from '../../components/ImageCardList';
 
 const useStyles = createStyles((theme) => ({
   h1: {
-    fontSize: 45,
+    fontSize: '3.5vh',
     fontWeight: 'bold'
   },
   h1_en: {
-    fontSize: 38,
+    fontSize: '3vh',
     fontWeight: 'bold'
   },
   h2: {
-    fontSize: 30,
+    fontSize: '3vh',
     fontWeight: 'bold',
   },
   h3: {
-    fontSize: 18,
+    fontSize: '2.5vh',
   },
   quote_container: {
     marginTop: 110
@@ -146,7 +146,7 @@ function Introduce() {
         <Grid.Col span={12}>
             <Container  size={1200}>
               <Grid className={classes.container1}>
-                <Grid.Col span={6}>
+                <Grid.Col md={6} sm={12}>
                     <AspectRatio ratio={1080 / 800} sx={{ maxWidth: 600 }} mx="auto">
                       <Image
                         src="https://borderless.or.kr/upload/001.jpg"
@@ -154,7 +154,7 @@ function Introduce() {
                       />
                     </AspectRatio>
                 </Grid.Col>
-                <Grid.Col span={6}>
+                <Grid.Col md={6} sm={12}>
                     <Grid>
                       <Grid.Col span={12}>
                           <Image

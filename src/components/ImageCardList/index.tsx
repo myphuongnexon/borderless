@@ -43,7 +43,7 @@ function ImageCardList({items, title, logoLink} : ImageCardListProps) {
       <Grid>
         <LogoTitle title={title} logoLink={logoLink} />
         {items && items.map((item, index) => 
-        <Grid.Col key={index} span={4}>
+        <Grid.Col key={index} lg={4} md={2} sm={1}>
           <Center><ImageCard {...item} /></Center>
         </Grid.Col>)}
       </Grid>

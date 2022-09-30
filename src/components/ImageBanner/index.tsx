@@ -7,6 +7,17 @@ const useStyles = createStyles((theme) => ({
   video_background: {
     backgroundColor: 'black',
     opacity: 0.3
+  },
+  container: {
+    height: '60vh',
+    [theme.fn.smallerThan('sm')]: {
+      height: '90vh',
+    },
+  },
+  title: {
+    [theme.fn.smallerThan('sm')]: {
+      marginLeft: 20
+    },
   }
 }));
 
@@ -23,13 +34,13 @@ function ImageBanner({link, title, maxHeight} : ImageBannerProps) {
 
   return (
     <>
-       <AspectRatio ratio={2560 / 1100} sx={{ maxWidth: '100%', maxHeight }} mx="auto">
-      <img className={classes.video_box} src={link} alt="" />
-      <div className={classes.video_background}></div>
-      <Grid>
-        <Grid.Col span={6}>{title}</Grid.Col>
-      </Grid>
-    </AspectRatio>
+       <AspectRatio ratio={2560 / 1100} sx={{ maxHeight, maxWidth: '100%' }} mx="auto" className={classes.container}>
+          <img className={classes.video_box} src={link} alt="" />
+          <div className={classes.video_background}></div>
+          <Grid>
+            <Grid.Col className={classes.title} md={6}>{title}</Grid.Col>
+          </Grid>
+        </AspectRatio>
     </>
   );
 }

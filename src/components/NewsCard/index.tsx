@@ -14,29 +14,45 @@ const useStyles = createStyles((theme) => ({
   },
   h3: {
     marginTop: 5,
-    fontSize: 25,
+    fontSize: '2vh',
     fontWeight: 'bold',
     color: theme?.colorScheme === 'dark' ? theme.colors.gray[0] : theme.colors.gray[8],
     overflow: 'hidden',
-    height: 80,
+    height: '6vh',
     display: '-webkit-box',
     WebkitLineClamp: 2,
     WebkitBoxOrient: 'vertical',
     boxOrient: 'vertical',
-    lineClamp:3,
-    marginBottom: 20
+    lineClamp:2,
+    marginBottom: 20,
+    
+    [theme.fn.smallerThan('sm')]: {
+      WebkitLineClamp: 2,
+      WebkitBoxOrient: 'vertical',
+      boxOrient: 'vertical',
+      lineClamp:2,
+      marginBottom: 2,
+      fontSize: '2.2vh',
+    }
   },
   h4_noBold: {
     marginTop: 5,
-    fontSize: 20,
+    fontSize: '1.5vh',
     color: theme?.colorScheme === 'dark' ? theme.colors.gray[0] : theme.colors.gray[8],
     overflow: 'hidden',
-    height: 100,
+    height: '9vh',
     display: '-webkit-box',
-    WebkitLineClamp: 3,
+    WebkitLineClamp: 4,
     WebkitBoxOrient: 'vertical',
     boxOrient: 'vertical',
-    lineClamp:3,
+    lineClamp:4,
+
+    [theme.fn.smallerThan('sm')]: {
+      WebkitLineClamp: 4,
+      lineClamp: 4,
+      height: '12vh',
+      fontSize: '2vh',
+    }
   },
   dateTime: {
     position: 'absolute',
@@ -49,15 +65,22 @@ const useStyles = createStyles((theme) => ({
   link_button: {
     width: 150,
     height: 45,
-    position: 'absolute',
+    // position: 'absolute',
     bottom: 20,
     borderRadius: 0,
     borderColor: theme?.colorScheme === 'dark' ? theme.colors.gray[0] : theme.colors.gray[6],
     color: theme?.colorScheme === 'dark' ? theme.colors.gray[0] : theme.colors.gray[6],
-    fontSize: 13
+    fontSize: '1vh',
+    marginTop: '5vh',
+    [theme.fn.smallerThan('sm')]: {
+      fontSize: '2vh',
+    }
   },
   text_col: {
     position: 'relative'
+  },
+  img: {
+    width: '40vh'
   }
 }));
 
@@ -78,14 +101,14 @@ function NewsCard({link, linkImage, title, content, createdDate} : NewsCardProps
   return (
     <Link to={link} className={classes.link}> 
       <Grid>
-        <Grid.Col span={6}>
+        <Grid.Col md={6} sm={12}>
           <Image
               src={linkImage}
-              width={550}
+              className={classes.img}
               alt="No way!"
             />
         </Grid.Col>
-        <Grid.Col span={6} className={classes.text_col}>
+        <Grid.Col md={6} sm={12} className={classes.text_col}>
           <Text weight={500} className={classes.h3}>
           {title}
           </Text>

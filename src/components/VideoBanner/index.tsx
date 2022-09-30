@@ -9,12 +9,12 @@ const useStyles = createStyles((theme) => ({
     opacity: 0.3
   },
   first_title: {
-    fontSize: 50,
+    fontSize: '6vh',
     textAlign: 'center',
     fontWeight: 'bold'
   },
   second_title: {
-    fontSize: 20,
+    fontSize: '3vh',
     textAlign: 'center',
     marginTop: '-25px',
     fontWeight: 'bold'
