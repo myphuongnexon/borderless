@@ -18,7 +18,7 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 'bold',
     color: theme?.colorScheme === 'dark' ? theme.colors.gray[0] : theme.colors.gray[8],
     overflow: 'hidden',
-    height: '6vh',
+    height: '6.5vh',
     display: '-webkit-box',
     WebkitLineClamp: 2,
     WebkitBoxOrient: 'vertical',

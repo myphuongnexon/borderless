@@ -101,12 +101,12 @@ const useStyles = createStyles((theme) => ({
     marginRight: 10
   },
   button_group: {
-    minWidth: 200,
+    minWidth: '20vh',
     position: 'absolute',
     right: 0,
 
     [theme.fn.smallerThan('sm')]: {
-      right: 40
+      right: '7vh'
     }
   }
 

@@ -49,9 +49,12 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 'bold'
   },
   second_title: {
-    fontSize: '2.5vh',
+    fontSize: '2vh',
     textAlign: 'start',
     marginTop: '10px',
+    [theme.fn.smallerThan('sm')]: {
+      fontSize: '2.5vh',
+    }
   },
   third_title: {
     fontSize: 20,
