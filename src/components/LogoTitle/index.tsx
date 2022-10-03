@@ -14,9 +14,15 @@ const useStyles = createStyles((theme, params, getRef) => ({
     marginBottom: 40
   },
   afterLogo: {
-    fontSize: '3vh',
+    fontSize: 35,
     fontWeight: 'bold',
-    lineHeight: 1
+    lineHeight: 1,
+    [theme.fn.largerThan('md')]: {
+      fontSize: 35,
+    },
+    [theme.fn.smallerThan('sm')]: {
+      fontSize: 25,
+    },
   },
 }));
 

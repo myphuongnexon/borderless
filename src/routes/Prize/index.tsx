@@ -44,17 +44,23 @@ const useStyles = createStyles((theme) => ({
     marginBottom: 10
   },
   first_title: {
-    fontSize: '3vh',
+    fontSize: 35,
+    [theme.fn.largerThan('md')]: {
+      fontSize: 35,
+    },
     textAlign: 'start',
     fontWeight: 'bold'
   },
   second_title: {
-    fontSize: '2vh',
+    fontSize: 28,
     textAlign: 'start',
     marginTop: '10px',
     [theme.fn.smallerThan('sm')]: {
-      fontSize: '2.5vh',
-    }
+      fontSize: 20,
+    },
+    [theme.fn.largerThan('md')]: {
+      fontSize: 20,
+    },
   },
   third_title: {
     fontSize: 20,
@@ -62,10 +68,16 @@ const useStyles = createStyles((theme) => ({
     marginTop: '10px',
   },
   image_title: {
-    marginLeft: 100,
+    marginLeft: 0,
+    position: 'relative',
     [theme.fn.smallerThan('sm')]: {
-      margin: 0
-    }
+      margin: '0 !important',
+      padding: 2,
+      width: '90%'
+    },
+    [theme.fn.largerThan('md') && theme.fn.smallerThan('lg')]: {
+      marginLeft: 100,
+    },
   },
   carousel_container: {
     paddingTop: 50,
@@ -176,7 +188,7 @@ function Prize() {
 
   return (
     <>
-      <ImageBanner link='https://borderless.or.kr/upload/img1.png' title={title1} maxHeight={1000}/>
+      <ImageBanner link='https://borderless.or.kr/upload/img1.png' title={title1} maxHeight={500}/>
       <Grid className={classes.quote_container}>
         <Grid.Col span={12}>
          <NewsCardList {...content1} />

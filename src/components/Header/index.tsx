@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { createStyles, Header, Container, Group, Burger, Paper, Transition, Button , Avatar, Menu, useMantineColorScheme } from '@mantine/core';
+import { createStyles, Header, Container, Group, Burger, Paper, Transition, Button , Avatar, Menu, useMantineColorScheme, Center } from '@mantine/core';
 // import { IconExternalLink } from '@tabler/icons';
 import { useDisclosure } from '@mantine/hooks';
 import SwitchModeButton from '../SwitchModeButton';
@@ -33,7 +33,7 @@ const useStyles = createStyles((theme) => ({
     borderTopWidth: 0,
     overflow: 'hidden',
 
-    [theme.fn.largerThan('sm')]: {
+    '@media (min-width: 1290px)': {
       display: 'none',
     },
   },
@@ -55,13 +55,13 @@ const useStyles = createStyles((theme) => ({
     height: '102%',
     gap: 20,
     minWidth: 700,
-    [theme.fn.smallerThan('sm')]: {
+    '@media (max-width: 1290px)': {
       display: 'none',
     },
   },
 
   burger: {
-    [theme.fn.largerThan('sm')]: {
+    '@media (min-width: 1290px)': {
       display: 'none',
     },
   },
@@ -98,15 +98,32 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.gray[8] : theme.colors.gray[2],
   },
   languageButton: {
-    marginRight: 10
+    marginRight: 10,
+    // [theme.fn.smallerThan('sm')]: {
+    //   display: 'none'
+    // }
   },
   button_group: {
-    minWidth: '20vh',
+    minWidth: '10vh',
     position: 'absolute',
-    right: 0,
+    right: 20,
 
     [theme.fn.smallerThan('sm')]: {
-      right: '7vh'
+      position: 'relative',
+      right: 0,
+      minWidth: '30px !important',
+      overflow:'hidden'
+    }
+  },
+  dropdown_button_group: {
+    margin: 10,
+    [theme.fn.largerThan('sm')]: {
+      display: 'none'
+    }
+  },
+  button_group2: {
+    [theme.fn.smallerThan('sm')]: {
+      display: 'none'
     }
   }
 
@@ -124,9 +141,6 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
   const { i18n } = useTranslation();
   const { colorScheme } = useMantineColorScheme();
   const dark = colorScheme === 'dark';
-
-
-
 
 const items = links.map((link) => (
   <Link 
@@ -150,58 +164,107 @@ const items = links.map((link) => (
           {items}
         </Group>
 
-        <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
-
         <Group spacing="xs" className={classes.button_group}>
+         <Center className={classes.button_group2}>
           <Menu width={130} shadow="md">
-            <Menu.Target>
-              <Button
-              className={classes.languageButton}
-              leftIcon={ 
-              <Avatar 
-                size="sm" 
-                src={i18n.language === 'en' ? EngFlagIcon : KorFlagIcon} />
-              } 
-              color={dark ? 'yellow' : 'dark.1'}
-              variant="outline">
-                {i18n.language === 'en' ? 'ENGLISH' : 'KOREA'}
-              </Button>
-            </Menu.Target>
-            <Menu.Dropdown>
-              <Menu.Item 
-                component="button"
-                className={i18n.language === 'en' ? classes.selectedMenu : 'none'}
-                onClick={() => changeLanguage( 'en' )}
-                icon={
+              <Menu.Target>
+                <Button
+                className={classes.languageButton}
+                leftIcon={ 
                 <Avatar 
                   size="sm" 
-                  src={EngFlagIcon} />
-                }
-              >
-                ENGLISH
-              </Menu.Item>
-              <Menu.Item 
-                onClick={() => changeLanguage( 'kr' )}
-                className={i18n.language === 'kr' ? classes.selectedMenu : 'none'}
-                component="button"
-                icon={
-                <Avatar 
-                  size="sm" 
-                  src={KorFlagIcon} />
-                }
-              >
-                KOREAN  
-              </Menu.Item>
-            </Menu.Dropdown>
-          </Menu>
+                  src={i18n.language === 'en' ? EngFlagIcon : KorFlagIcon} />
+                } 
+                color={dark ? 'yellow' : 'dark.1'}
+                variant="outline">
+                  {i18n.language === 'en' ? 'ENGLISH' : 'KOREA'}
+                </Button>
+              </Menu.Target>
+              <Menu.Dropdown>
+                <Menu.Item 
+                  component="button"
+                  className={i18n.language === 'en' ? classes.selectedMenu : 'none'}
+                  onClick={() => changeLanguage( 'en' )}
+                  icon={
+                  <Avatar 
+                    size="sm" 
+                    src={EngFlagIcon} />
+                  }
+                >
+                  ENGLISH
+                </Menu.Item>
+                <Menu.Item 
+                  onClick={() => changeLanguage( 'kr' )}
+                  className={i18n.language === 'kr' ? classes.selectedMenu : 'none'}
+                  component="button"
+                  icon={
+                  <Avatar 
+                    size="sm" 
+                    src={KorFlagIcon} />
+                  }
+                >
+                  KOREAN  
+                </Menu.Item>
+              </Menu.Dropdown>
+            </Menu>
 
-          <SwitchModeButton />
+            <SwitchModeButton />
+         </Center>
+
+          <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
         </Group>
 
         <Transition transition="pop-top-right" duration={200} mounted={opened}>
           {(styles) => (
             <Paper className={classes.dropdown} withBorder style={styles}>
               {items}
+              <Center className={classes.dropdown_button_group}>
+              <Group spacing="xs" className={classes.button_group}>
+                <Menu width={130} shadow="md">
+                  <Menu.Target>
+                    <Button
+                    className={classes.languageButton}
+                    leftIcon={ 
+                    <Avatar 
+                      size="sm" 
+                      src={i18n.language === 'en' ? EngFlagIcon : KorFlagIcon} />
+                    } 
+                    color={dark ? 'yellow' : 'dark.1'}
+                    variant="outline">
+                      {i18n.language === 'en' ? 'ENGLISH' : 'KOREA'}
+                    </Button>
+                  </Menu.Target>
+                  <Menu.Dropdown>
+                    <Menu.Item 
+                      component="button"
+                      className={i18n.language === 'en' ? classes.selectedMenu : 'none'}
+                      onClick={() => changeLanguage( 'en' )}
+                      icon={
+                      <Avatar 
+                        size="sm" 
+                        src={EngFlagIcon} />
+                      }
+                    >
+                      ENGLISH
+                    </Menu.Item>
+                    <Menu.Item 
+                      onClick={() => changeLanguage( 'kr' )}
+                      className={i18n.language === 'kr' ? classes.selectedMenu : 'none'}
+                      component="button"
+                      icon={
+                      <Avatar 
+                        size="sm" 
+                        src={KorFlagIcon} />
+                      }
+                    >
+                      KOREAN  
+                    </Menu.Item>
+                  </Menu.Dropdown>
+                </Menu>
+
+                <SwitchModeButton />
+              </Group>
+              </Center>
             </Paper>
           )}
         </Transition>

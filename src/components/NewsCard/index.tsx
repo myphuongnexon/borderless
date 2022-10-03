@@ -14,11 +14,11 @@ const useStyles = createStyles((theme) => ({
   },
   h3: {
     marginTop: 5,
-    fontSize: '2vh',
+    fontSize: 28,
     fontWeight: 'bold',
     color: theme?.colorScheme === 'dark' ? theme.colors.gray[0] : theme.colors.gray[8],
     overflow: 'hidden',
-    height: '6.5vh',
+    height: 80,
     display: '-webkit-box',
     WebkitLineClamp: 2,
     WebkitBoxOrient: 'vertical',
@@ -32,15 +32,16 @@ const useStyles = createStyles((theme) => ({
       boxOrient: 'vertical',
       lineClamp:2,
       marginBottom: 2,
-      fontSize: '2.2vh',
+      height: '13vw',
+      fontSize: '4vw',
     }
   },
   h4_noBold: {
     marginTop: 5,
-    fontSize: '1.5vh',
+    fontSize: 20,
     color: theme?.colorScheme === 'dark' ? theme.colors.gray[0] : theme.colors.gray[8],
     overflow: 'hidden',
-    height: '9vh',
+    height: 125,
     display: '-webkit-box',
     WebkitLineClamp: 4,
     WebkitBoxOrient: 'vertical',
@@ -50,8 +51,8 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan('sm')]: {
       WebkitLineClamp: 4,
       lineClamp: 4,
-      height: '12vh',
-      fontSize: '2vh',
+      height: '25vw',
+      fontSize: '4vw',
     }
   },
   dateTime: {
@@ -70,10 +71,10 @@ const useStyles = createStyles((theme) => ({
     borderRadius: 0,
     borderColor: theme?.colorScheme === 'dark' ? theme.colors.gray[0] : theme.colors.gray[6],
     color: theme?.colorScheme === 'dark' ? theme.colors.gray[0] : theme.colors.gray[6],
-    fontSize: '1vh',
+    fontSize: 15,
     marginTop: '5vh',
     [theme.fn.smallerThan('sm')]: {
-      fontSize: '2vh',
+      fontSize: 12,
     }
   },
   text_col: {

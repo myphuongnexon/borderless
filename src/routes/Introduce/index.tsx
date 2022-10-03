@@ -5,30 +5,42 @@ import ImageCardList from '../../components/ImageCardList';
 
 const useStyles = createStyles((theme) => ({
   h1: {
-    fontSize: '3vh',
+    fontSize: 40,
     fontWeight: 'bold',
     [theme.fn.smallerThan('sm')]: {
-      fontSize: '3.5vh',
+      fontSize: 25,
+    },
+    [theme.fn.largerThan('md')]: {
+      fontSize: 45,
     }
   },
   h1_en: {
-    fontSize: '1.5vh',
+    fontSize: 40,
     fontWeight: 'bold',
     [theme.fn.smallerThan('sm')]: {
-      fontSize: '3vh',
+      fontSize: 23,
+    },
+    [theme.fn.largerThan('md')]: {
+      fontSize: 38,
     }
   },
   h2: {
-    fontSize: '2vh',
+    fontSize: 30,
     fontWeight: 'bold',
     [theme.fn.smallerThan('sm')]: {
-      fontSize: '2.5vh',
+      fontSize: 20,
+    },
+    [theme.fn.largerThan('md')]: {
+      fontSize: 33,
     }
   },
   h3: {
-    fontSize: '1.5vh',
+    fontSize: 20,
     [theme.fn.smallerThan('sm')]: {
-      fontSize: '2.5vh',
+      fontSize: 18,
+    },
+    [theme.fn.largerThan('md')]: {
+      fontSize: 20,
     }
   },
   quote_container: {

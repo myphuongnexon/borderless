@@ -43,17 +43,23 @@ const useStyles = createStyles((theme) => ({
     marginBottom: 10
   },
   first_title: {
-    fontSize: '3vh',
+    fontSize: 35,
+    [theme.fn.largerThan('md')]: {
+      fontSize: 35,
+    },
     textAlign: 'start',
     fontWeight: 'bold'
   },
   second_title: {
-    fontSize: '2vh',
+    fontSize: 28,
     textAlign: 'start',
     marginTop: '10px',
     [theme.fn.smallerThan('sm')]: {
-      fontSize: '2.5vh',
-    }
+      fontSize: 20,
+    },
+    [theme.fn.largerThan('md')]: {
+      fontSize: 20,
+    },
   },
   third_title: {
     fontSize: 20,
@@ -61,10 +67,15 @@ const useStyles = createStyles((theme) => ({
     marginTop: '10px',
   },
   image_title: {
-    marginLeft: 100,
-    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
-      // Type safe child reference in nested selectors via ref
-      marginLeft: 0
+    marginLeft: 0,
+    position: 'relative',
+    [theme.fn.smallerThan('sm')]: {
+      margin: '0 !important',
+      padding: 2,
+      width: '90%'
+    },
+    [theme.fn.largerThan('md') && theme.fn.smallerThan('lg')]: {
+      marginLeft: 100,
     },
   }
 }));
@@ -104,7 +115,7 @@ function Forum() {
         createdDate: '2022-02-17 12:49:14'
       },
     ],
-    title: t('content.[2020] 보더리스: 티키타카 게임 뒷담화'),
+    title: t('content.[2020] 보더리스- 티키타카 게임 뒷담화'),
     logoLink: 'https://borderless.or.kr/assets/images/icon/ic-point-01.png'
   };
 
@@ -167,7 +178,7 @@ function Forum() {
 
   return (
     <>
-      <ImageBanner link='https://borderless.or.kr/upload/Untitled-3.jpg' title={title1} maxHeight={1000}/>
+      <ImageBanner link='https://borderless.or.kr/upload/Untitled-3.jpg' title={title1} maxHeight={500}/>
       <Grid className={classes.quote_container}>
         <Grid.Col span={12}>
           <CarouselImageCardList {...content1} />

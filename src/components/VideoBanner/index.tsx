@@ -9,12 +9,24 @@ const useStyles = createStyles((theme) => ({
     opacity: 0.3
   },
   first_title: {
-    fontSize: '6vh',
+    fontSize: 50,
+    [theme.fn.largerThan('md')]: {
+      fontSize: 50,
+    },
+    [theme.fn.smallerThan('sm')]: {
+      fontSize: 35,
+    },
     textAlign: 'center',
     fontWeight: 'bold'
   },
   second_title: {
-    fontSize: '3vh',
+    fontSize: 25,
+    [theme.fn.largerThan('md')]: {
+      fontSize: 25,
+    },
+    [theme.fn.smallerThan('sm')]: {
+      fontSize: 20,
+    },
     textAlign: 'center',
     marginTop: '-25px',
     fontWeight: 'bold'
